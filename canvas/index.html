@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Canvas</title>
+		<!-- FontAwesome -->
+    <script defer src="./assets/svg-with-js/js/fontawesome-all.js"></script>
+		<link rel="stylesheet" href="./assets/css/animate.css">
+		<link rel="stylesheet" href="./assets/css/index.css">
+	</head>
+	<body style="background-color:rgba(0,0,0,0);">
+
+		<div id="appArea"></div>
+
+		<div id="login" class="fadeIn animated">
+			<div class="greeting">
+				<div>Welcome to VirtUE!</div>
+				<img src="./assets/img/virtue.png" alt="VirtUE icon">
+			</div>
+			<div class="form-group">
+				<label for="userId">ID: </label>
+				<input type="text" name="userId" id="userId" value="">
+			</div>
+			<div class="form-group">
+				<label for="password">Password: </label>
+				<input type="password" name="password" id="password" onkeypress="login(event);">
+			</div>
+			<div style="text-align: right; margin: 10px; display: flex;">
+				<div id="loginMsg"></div>
+				<input class="submit" type="submit" value="Log In" onclick="login(event);">
+			</div>
+		</div>
+
+		<!-- <div id="login" class="fadeIn animated">
+			<webview src="http://172.30.1.44:5000/account/login" allowtransparency style="width:500px; height:500px"></webview>
+		</div> -->
+
+		<div id="dockWrapper" class="fadeInRight animated" style="display: none;">
+			<ul class="dock">
+				<div class="optionsWrapper">
+					<li onmouseover="showOptions(this);" onmouseout="hideOptions(this);">
+		        <i class="fab fa-black-tie fa-2x"></i>
+						<div style="margin-top: 5px;">Admin</div>
+						<div class="options admin">
+							<div class="icon-pair circle-bg" onclick="openApp('word', 'admin', '2000');">
+								<i class="fas fa-file-word fa-2x"></i>
+							</div>
+							<div class="icon-pair circle-bg" onclick="openApp('notepad', 'admin', '2000');">
+								<i class="far fa-file-edit fa-2x"></i>
+							</div>
+							<div class="icon-pair circle-bg" onclick="openApp('firefox', 'admin', '2000');">
+								<i class="fab fa-firefox fa-2x"></i>
+							</div>
+						</div>
+		      </li>
+					<div id="minimized_admin_drawer" class="minimizedWrapper" style="display: none;">
+						<div class="minimizedActuator admin" onclick="toggleMinimizedDrawer('admin');">
+							<div id="minimized_admin_count" class="count"></div>
+							<i id="minimized_admin_close" class="fas fa-chevron-right" style="display: none;"></i>
+						</div>
+						<div id="minimized_admin" class="minimized" style="display: none;"></div>
+					</div>
+				</div>
+
+				<div class="optionsWrapper">
+					<li onmouseover="showOptions(this);" onmouseout="hideOptions(this);">
+		        <i class="far fa-file-edit fa-2x"></i>
+						<div style="margin-top: 5px;">Editor</div>
+						<div class="options editor">
+							<div class="icon-pair circle-bg" onclick="openApp('word', 'editor', '3000');">
+								<i class="fas fa-file-word fa-2x"></i>
+							</div>
+							<div class="icon-pair circle-bg" onclick="openApp('notepad', 'editor', '3000');">
+								<i class="far fa-file-edit fa-2x"></i>
+							</div>
+							<div class="icon-pair circle-bg" onclick="openApp('firefox', 'editor', '3000');">
+								<i class="fab fa-firefox fa-2x"></i>
+							</div>
+						</div>
+		      </li>
+					<div id="minimized_editor_drawer" class="minimizedWrapper" style="display: none;">
+						<div class="minimizedActuator editor" onclick="toggleMinimizedDrawer('editor');">
+							<div id="minimized_editor_count" class="count"></div>
+							<i id="minimized_editor_close" class="fas fa-chevron-right" style="display: none;"></i>
+						</div>
+						<div id="minimized_editor" class="minimized" style="display: none;"></div>
+					</div>
+				</div>
+
+				<div class="optionsWrapper">
+					<li onmouseover="showOptions(this);" onmouseout="hideOptions(this);">
+		        <i class="far fa-eye fa-2x"></i>
+						<div style="margin-top: 5px;">Viewer</div>
+						<div class="options viewer">
+							<div class="icon-pair circle-bg" onclick="openApp('word', 'viewer', '4000');">
+								<i class="fas fa-file-word fa-2x"></i>
+							</div>
+							<div class="icon-pair circle-bg" onclick="openApp('notepad', 'viewer', '4000');">
+								<i class="far fa-file-edit fa-2x"></i>
+							</div>
+							<div class="icon-pair circle-bg" onclick="openApp('word', 'viewer', '4000');">
+								<i class="fab fa-firefox fa-2x"></i>
+							</div>
+						</div>
+		      </li>
+					<div id="minimized_viewer_drawer" class="minimizedWrapper" style="display: none;">
+						<div class="minimizedActuator viewer" onclick="toggleMinimizedDrawer('viewer');">
+							<div id="minimized_viewer_count" class="count"></div>
+							<i id="minimized_viewer_close" class="fas fa-chevron-right" style="display: none;"></i>
+						</div>
+						<div id="minimized_viewer" class="minimized" style="display: none;"></div>
+					</div>
+				</div>
+
+	    </ul>
+		</div>
+
+	</body>
+
+	<script src="./bundle.js" charset="utf-8"></script>
+</html>
